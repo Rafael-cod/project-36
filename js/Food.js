@@ -6,12 +6,11 @@ class Food{
     }
 
     updateFoodStock(foodStock){
-        this.foodStock = lastFed;
+        this.foodStock = foodStock;
     }
 
     getFedTime(lastFed){
-        this.foodStock;
-        lastFed = lastFed;
+        this.lastFed = lastFed;
     }
 
     deductFood(){
@@ -25,19 +24,30 @@ class Food{
     }
 
     bedroom(){
-        background(bedroom, 550, 500);
+        background(bedroom, 350, 500);
     }
 
     garden(){
-        background(garden, 550, 500);
+        background(garden, 350, 500);
     }
 
     washroom(){
-        background(washroom, 550, 500);
+        background(washroom, 350, 500);
     }
 
     display(){
-        var x = 80, y = 100;
+        background(46,139,87);
+
+        fill(255);
+        textSize(20);
+        if(lastFed >= 12){
+          text("Last Feed : " + lastFed % 12 + " PM", 50, 30);
+        }else if(lastFed == 0){
+          text("Last Feed : 12 AM",50, 30);
+        }else{
+          text("Last Feed : " + lastFed + " AM", 50, 30);
+        }
+        var x = 70, y = 100;
         
         imageMode(CENTER);
         image(this.image);
@@ -45,7 +55,7 @@ class Food{
         if(this.foodStock != 0){
             for(var i=0; i<this.foodStock; i++){
                 if(i%10 == 0){
-                    x = 80;
+                    x = 70;
                     y = y + 50;
                 }
                 image(this.image, x, y, 50, 50);
